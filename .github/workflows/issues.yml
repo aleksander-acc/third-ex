@@ -1,0 +1,13 @@
+name: Issues print
+on:
+  issue_comment:
+    types: [created]
+  push:
+    branches:
+      - 'main'
+jobs:
+  handle_issue: 
+    runs_on: ubuntu-24.04
+    steps: 
+      - name: echo_context
+        run: echo ${{toJSON(github)}}
