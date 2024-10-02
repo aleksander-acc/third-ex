@@ -1,7 +1,7 @@
 name: Issues print
 on:
   issues:
-    types: [created]
+    types: [opened, edited]
   push:
     branches:
       - 'main'
