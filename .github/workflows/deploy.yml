@@ -1,0 +1,39 @@
+name: Deployment script
+on: [push]
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Lint
+        run: npm lint
+  test:
+    needs: lint
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Test
+        run: npm test
+  build:
+    needs: test
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name:  Build
+        run: npm build
+  
