@@ -10,8 +10,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: Install dependencies
+        run: npm ci
       - name: Lint
-        run: npm lint
+        run: npm run lint
   test:
     needs: lint
     runs-on: ubuntu-24.04
@@ -22,6 +24,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: Install dependencies
+        run: npm ci
       - name: Test
         run: npm test
   build:
@@ -34,6 +38,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+      - name: Install dependencies
+        run: npm ci
       - name:  Build
         run: npm build
   
