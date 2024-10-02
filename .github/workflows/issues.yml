@@ -6,8 +6,8 @@ on:
     branches:
       - 'main'
 jobs:
-  handle_issue: 
-    runs_on: ubuntu-24.04
+  handle: 
+    runs-on: ubuntu-24.04
     steps: 
       - name: echo_context
         run: echo ${{toJSON(github)}}
