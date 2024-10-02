@@ -1,6 +1,6 @@
 name: Issues print
 on:
-  issue_comment:
+  issues:
     types: [created]
   push:
     branches:
